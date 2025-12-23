@@ -104,7 +104,7 @@ def plot_2d_energy_levels(X, y, energy, v=None, l=None):
     plt.axvline(color='0.55', lw=1)
     plt.axhline(color='0.55', lw=1)
     plt.axis([-1.5, 1.5, -1.5, 1.5])
-    ȳ = torch.zeros(K).int(); ȳ[k] = 1
+    ȳ = torch.zeros(K).long(); ȳ[k] = 1
     plt.title(f'Free energy F(x, y = {ȳ.tolist()})')
 
 
@@ -130,7 +130,7 @@ def plot_3d_energy_levels(X, y, energy, v=None, l=None, cbl=None):
     sm = plt.cm.ScalarMappable(norm=norm, cmap=cnt.cmap)
     sm.set_array([])
     fig.colorbar(sm, ticks=cbl, ax=ax)
-    ȳ = torch.zeros(K).int(); ȳ[k] = 1
+    ȳ = torch.zeros(K).long(); ȳ[k] = 1
     plt.title(f'Free energy F(x, y = {ȳ.tolist()})')
     plt.tight_layout()
     return fig, ax
